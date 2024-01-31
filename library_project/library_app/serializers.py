@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Author, BookCategory, Library, Book
+from .models import Author, BookCategory, Library, Book, Librarian
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,11 +30,15 @@ class LibrarySerializer(serializers.ModelSerializer):
         model = Library
         fields = '__all__'
 
-class BookSerializer(serializers.ModelSerializer):
-    category = BookCategorySerializer()
+class LibrarianSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Librarian
+        fields = '__all__'
+
+class BookSerializer(serializers.ModelSerializer): 
     class Meta:
         model = Book
-        exclude = ['library','copies_available','id']
+        fields = '__all__'
 
 
 class BookCountSerializer(serializers.Serializer):

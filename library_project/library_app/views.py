@@ -1,8 +1,8 @@
 from rest_framework import generics
 from .models import Author, BookCategory, Librarian, Library, Book
-from .serializers import AuthorSerializer, BookCategorySerializer, LibrarySerializer, LibrarySerializer, BookSerializer,BookCountSerializer
+from .serializers import AuthorSerializer, BookCategorySerializer, LibrarySerializer, BookSerializer,BookCountSerializer,LibrarianSerializer
 from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework.views import APIView, status
 class AuthorListCreateView(generics.ListCreateAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
@@ -21,11 +21,11 @@ class BookCategoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIVie
 
 class LibrarianListCreateView(generics.ListCreateAPIView):
     queryset = Librarian.objects.all()
-    serializer_class = LibrarySerializer
+    serializer_class = LibrarianSerializer
 
 class LibrarianRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Librarian.objects.all()
-    serializer_class = LibrarySerializer
+    serializer_class = LibrarianSerializer
 
 class LibraryListCreateView(generics.ListCreateAPIView):
     queryset = Library.objects.all()
@@ -40,7 +40,7 @@ class BookListCreateView(generics.ListCreateAPIView):
     serializer_class = BookSerializer
 
 class BookRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Book.objects.all()
+    queryset = Book.objects. all()
     serializer_class = BookSerializer
 
 class BooksByCategoryView(APIView):
