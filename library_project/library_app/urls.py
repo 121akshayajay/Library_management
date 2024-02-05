@@ -4,8 +4,12 @@ from .views import (
     BookCategoryListCreateView, BookCategoryRetrieveUpdateDestroyView,
     LibrarianListCreateView, LibrarianRetrieveUpdateDestroyView,
     LibraryListCreateView, LibraryRetrieveUpdateDestroyView,
-    BookListCreateView, BookRetrieveUpdateDestroyView,BooksByCategoryView,
+    BookListCreateView, BookRetrieveUpdateDestroyView,BooksByCategoryView,UserRegistrationView,
+    ObtainTokenPairWithView,
 )   
+
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 urlpatterns = [
     path('authors/', AuthorListCreateView.as_view(), name='author-list-create'),
@@ -25,6 +29,8 @@ urlpatterns = [
 
     path('categories/<int:category_id>/books/', BooksByCategoryView.as_view(), name='books-by-category'),
 
+    path('register/', UserRegistrationView.as_view(), name='user-registration'),
+    path('token/', ObtainTokenPairWithView.as_view(), name='token-obtain-pair'),
 
 ]
 
